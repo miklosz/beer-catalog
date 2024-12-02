@@ -1,3 +1,4 @@
+import Nav from "@/components/Nav/Nav";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -16,6 +17,7 @@ export default function RootLayout({
         {metadata.title &&
           <header>
             <h1>{metadata.title.toString()}</h1>
+            <Nav />
           </header>
         }
         {children}

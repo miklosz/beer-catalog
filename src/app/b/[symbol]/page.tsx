@@ -1,10 +1,11 @@
-import { getBeerData, getSimilarBeers } from "@/api/serverApi";
+import { getBeerBySymbol, getSimilarBeers } from "@/api/serverApi";
+import LinkToBeer from "@/components/LinkToBeer/LinkToBeer";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 
 const SingleBeerPage = async ({ params }: { params: Promise<{ symbol: string; }>; }) => {
   const symbol = (await params).symbol;
-  const beer = await getBeerData(symbol);
+  const beer = await getBeerBySymbol(symbol);
 
   if (!beer || !symbol) {
     return notFound();
@@ -24,7 +25,7 @@ const SingleBeerPage = async ({ params }: { params: Promise<{ symbol: string; }>
       <ul>
         {similarBeers.map((similarBeer) => (
           <li key={similarBeer.id}>
-            <Link href={`/b/${similarBeer.symbol}`}>{similarBeer.name}</Link>
+            <LinkToBeer beer={similarBeer} />
           </li>
         ))}
       </ul>

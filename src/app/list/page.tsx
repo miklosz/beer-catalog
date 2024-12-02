@@ -1,13 +1,12 @@
+import { getAllBeers } from "@/api/serverApi";
 import LinkToBeer from "@/components/LinkToBeer/LinkToBeer";
-import prisma from "@/lib/prisma";
+import Link from "next/link";
 
-const Home = async () => {
-  const list = await prisma.beer.findMany();
-
+const BeersList = async () => {
+  const list = await getAllBeers();
   return (
     <div>
       <h1>All beers</h1>
-      <p>To be replaced with a search start page</p>
       <ul>
         {list.map((beer) => (
           <li key={beer.id}>
@@ -19,4 +18,4 @@ const Home = async () => {
   );
 };
 
-export default Home;
+export default BeersList;
