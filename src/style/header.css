@@ -1,0 +1,25 @@
+header {
+  padding: calc(var(--gap) * .5) var(--gap);
+  background-color: var(--primary-color);
+  color: var(--bg-color);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+header h1 {
+  margin: 0;
+  padding: 0;
+}
+
+header nav a {
+  color: var(--bg-color);
+  margin: 0 var(--gap);
+}
+
+@media (min-width: 50rem) {
+  header {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}

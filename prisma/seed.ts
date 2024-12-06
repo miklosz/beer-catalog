@@ -6,19 +6,19 @@ async function main() {
   console.log('Seeding database...');
 
   const other = await prisma.styleType.create({
-    data: { value: 'OTHER', id: 0 },
+    data: { name: 'OTHER', id: 0 },
   });
 
   const ale = await prisma.styleType.create({
-    data: { value: 'ALE' },
+    data: { name: 'ALE' },
   });
 
   const lager = await prisma.styleType.create({
-    data: { value: 'LAGER' },
+    data: { name: 'LAGER' },
   });
 
   const belgian = await prisma.styleType.create({
-    data: { value: 'BELGIAN' },
+    data: { name: 'BELGIAN' },
   });
 
 
@@ -53,19 +53,19 @@ async function main() {
 
   // Create Statuses
   const plan = await prisma.status.create({
-    data: { value: 'PLAN' },
+    data: { name: 'PLAN' },
   });
 
   const production = await prisma.status.create({
-    data: { value: 'PRODUCTION' },
+    data: { name: 'PRODUCTION' },
   });
 
   const stock = await prisma.status.create({
-    data: { value: 'STOCK' },
+    data: { name: 'STOCK' },
   });
 
   const gone = await prisma.status.create({
-    data: { value: 'GONE' },
+    data: { name: 'GONE' },
   });
 
   // Create Beers
