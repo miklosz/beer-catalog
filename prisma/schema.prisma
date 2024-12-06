@@ -14,7 +14,7 @@ model Beer {
   symbol      String    @unique
   order       Int       @unique
   name        String
-  style       Style     @relation(fields: [styleId], references: [id], onDelete: SetDefault)
+  style       Style     @relation(fields: [styleId, styleName], references: [id, name], onDelete: SetDefault)
   description String?
   recipe      String? // later as a separate model
   brewedAt    DateTime?
@@ -30,6 +30,7 @@ model Beer {
   updatedAt   DateTime  @updatedAt
   visible     Boolean   @default(true)
   styleId     Int       @default(0)
+  styleName   String    @default("")
   statusId    Int
   Image       Image[]
 }
@@ -49,6 +50,8 @@ model Style {
   visible     Boolean   @default(true)
   Beer        Beer[]
   styleTypeId Int       @default(0)
+
+  @@unique([id, name])
 }
 
 model StyleType {

@@ -8,6 +8,23 @@ export const getAllBeers = async () => {
   return beers;
 };
 
+export const findBeers = async (query: string) => {
+  if (!query) return [];
+  const normalizedQuery = query.toString().toLowerCase();
+
+  return await prisma.beer.findMany({
+    where: {
+      OR: [
+        { name: { contains: normalizedQuery } },
+        { symbol: { contains: normalizedQuery } },
+        { style: { name: { contains: normalizedQuery } } },
+      ],
+    },
+    select: { name: true, symbol: true, style: { select: { name: true } } }, 
+    orderBy: { order: 'asc' },
+  });
+}
+
 export const getSimilarBeers = async (id: number) => {
   // stub, to be implemented
   const similarBeers = await prisma.beer.findMany(
