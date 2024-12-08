@@ -1,6 +1,5 @@
 import { getAllBeers } from "@/api/serverApi";
 import LinkToBeer from "@/components/LinkToBeer/LinkToBeer";
-import Link from "next/link";
 
 const BeersList = async () => {
   const list = await getAllBeers();
