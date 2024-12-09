@@ -1,6 +1,7 @@
 'use server';
 
 import prisma from "@/lib/prisma";
+import { normalizeString } from "@/utils";
 
 export const getAllBeers = async () => {
   // add filter and sort (status)
@@ -10,7 +11,7 @@ export const getAllBeers = async () => {
 
 export const findBeers = async (query: string) => {
   if (!query) return [];
-  const normalizedQuery = query.toString().toLowerCase();
+  const normalizedQuery = normalizeString(query)
 
   return await prisma.beer.findMany({
     where: {
@@ -41,7 +42,9 @@ export const getSimilarBeers = async (id: number) => {
 
 export const getBeerBySymbol = async (symbol: string) => {
   const beer = await prisma.beer.findUnique({
-    where: { symbol },
+    where: {
+      symbol: symbol,
+    },
     include: {
       style: {
         select: { name: true }, // Include only the style name

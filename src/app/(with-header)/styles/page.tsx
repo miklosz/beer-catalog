@@ -1,4 +1,4 @@
-import { getAllStyles } from "@/api/serverApi";
+import { getAllStyles } from "@/server/dbApi";
 import Link from "next/link";
 
 const StylesPage = async () => {

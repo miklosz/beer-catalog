@@ -1,4 +1,4 @@
-import { getAllBeers } from "@/api/serverApi";
+import { getAllBeers } from "@/server/dbApi";
 import LinkToBeer from "@/components/LinkToBeer/LinkToBeer";
 
 const BeersList = async () => {

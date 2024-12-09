@@ -1,20 +1,15 @@
-import { findBeers, getAllBeers } from "@/api/serverApi";
+import { findBeers, getAllBeers } from "@/server/dbApi";
 import LinkToBeer from "@/components/LinkToBeer/LinkToBeer";
 
-type Params = Promise<{ slug: string }>
-type SearchParams = Promise<{ [key: string]: string | string[] | undefined }>
+type SearchParams = Promise<{ [key: string]: string | string[] | undefined; }>
+interface Props { 
+  searchParams: SearchParams 
+}
  
 // TODO: Consider - use this page as separate, or merged with list
-// Example of consuming searchParams and params (part of URL)
 
-export async function generateMetadata(props: {
-  params: Params
-  searchParams: SearchParams
-}) {
-  const params = await props.params
-  const searchParams = await props.searchParams
-  const slug = params.slug
-  const query = searchParams.query
+export async function generateMetadata(props: Props) {
+  const query = (await props.searchParams).q
 
   return {
     title: `Search results for ${query}`,
@@ -22,9 +17,8 @@ export async function generateMetadata(props: {
   }
 }
 
-const SearchPage = async ({ params, searchParams }: { params: Params, searchParams: SearchParams }) => {
-  const slug = (await params).slug // not used, not avaliable in this path
-  const query = (await searchParams).query
+const SearchPage = async ({ searchParams } : { searchParams: SearchParams }) => {
+  const query = (await searchParams).q
   const results = query ? await findBeers(Array.isArray(query) ? query.join(' ') : query) : await getAllBeers()
 
   return (

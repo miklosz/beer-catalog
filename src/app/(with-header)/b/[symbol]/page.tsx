@@ -1,11 +1,11 @@
-import { getBeerBySymbol, getSimilarBeers } from "@/api/serverApi";
+import { getBeerBySymbol, getSimilarBeers } from "@/server/dbApi";
 import LinkToBeer from "@/components/LinkToBeer/LinkToBeer";
-import Link from "next/link";
 import { notFound } from "next/navigation";
+import { normalizeString } from "@/utils";
 
 const SingleBeerPage = async ({ params }: { params: Promise<{ symbol: string; }>; }) => {
   const symbol = (await params).symbol;
-  const beer = await getBeerBySymbol(symbol);
+  const beer = await getBeerBySymbol(normalizeString(symbol));
 
   if (!beer || !symbol) {
     return notFound();

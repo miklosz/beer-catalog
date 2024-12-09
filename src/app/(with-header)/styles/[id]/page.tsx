@@ -1,4 +1,4 @@
-import { getBeerByStyle, getStyleById } from "@/api/serverApi";
+import { getBeerByStyle, getStyleById } from "@/server/dbApi";
 import LinkToBeer from "@/components/LinkToBeer/LinkToBeer";
 import { notFound } from "next/navigation";
 
