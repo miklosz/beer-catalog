@@ -6,9 +6,9 @@ export default function WithHeaderLayout({ children }: { children: React.ReactNo
   return (
     <>
       <header>
-        <h1>
+        <h2>
           <Link href="/">Piwny katalog</Link>
-        </h1>
+        </h2>
         <Nav />
       </header>
       <main>{children}</main>

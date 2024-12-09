@@ -1,8 +1,8 @@
 :root {
   --font-size: 16px;
   --gap: 1rem;
-  --primary-color: #050705;
-  --secondary-color: #6c757d;
+  --primary-color:rgb(5,7,5);
+  --secondary-color: rgb(120, 120, 120);
   --bg-color: #fff;
   --breakpoint: 50rem;
 }
@@ -33,12 +33,6 @@ body {
   flex-direction: column;
 }
 
-.home {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: calc(var(--gap) * 4) var(--gap) var(--gap);
-}
 
 main {
   padding: var(--gap);
@@ -49,6 +43,7 @@ footer {
   bottom: calc(var(--gap) * .25);
   right: calc(var(--gap) * .25);
   color: var(--secondary-color);
+  font-size: .75rem;
 }
 
 a, a:visited {
@@ -58,4 +53,14 @@ a, a:visited {
 
 a:hover {
   text-decoration: underline;
+}
+
+input {
+  border: 1px solid var(--primary-color);
+  border-radius: 0;
+  padding: calc(var(--gap) * .25);
+}
+
+input::placeholder {
+  color: var(--secondary-color);
 }
