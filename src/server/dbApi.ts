@@ -21,7 +21,7 @@ export const findBeers = async (query: string) => {
         { style: { name: { contains: normalizedQuery } } },
       ],
     },
-    select: { name: true, symbol: true, style: { select: { name: true } } }, 
+    select: { id: true, name: true, symbol: true, style: { select: { name: true } } }, 
     orderBy: { order: 'asc' },
   });
 }
