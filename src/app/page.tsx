@@ -4,11 +4,10 @@ import Form from 'next/form'
 import logo from '../../public/img/logo.png';
 import { goToBeer } from '../server/actions';
 import '@/style/home.css';
-
  
 const Home = async () => {
   return (
-    <div className="home">
+    <div id="home">
       <Image src={logo} alt="Logo" width={260} height={260} />
       <h1>Piwny katalog</h1>
 

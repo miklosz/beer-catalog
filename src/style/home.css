@@ -1,70 +1,64 @@
-.home {
+#home {
   display: flex;
   flex-direction: column;
   align-items: center;
   padding: calc(var(--gap) * 4) var(--gap) var(--gap);
 }
 
-.home main {
+#home main {
   width: 50rem;
   max-width: 100%;
 }
 
-.home h1 {
+#home h1 {
   font-size: 2.5rem;
 }
 
-.home form {
+#home form {
   display: flex;
   margin-bottom: 1rem;
 }
 
-.home label {
+#home label {
   font-weight: bold;
   display: inline-block;
   padding: .5rem 0;
 }
 
-.home input {
+#home input {
   font-size: 2rem;
   padding: .5rem;
   outline: none;
 }
 
-.home input:focus {
+#home input:focus {
   outline: .25rem solid var(--secondary-color);
 }
 
-.home .formSingle {
+#home .formSingle {
   flex-direction: row;
   align-items: center;
   justify-content: flex-start;
   gap: 1rem;
 }
 
-.home .formSingle input {
-  width: 5rem;
+#home .formSingle input {
+  width: 3rem;
+  height: 3rem;
 }
 
-.home .formSearch {
+#home .formSearch {
   flex-direction: column;
   align-items: flex-start;
   justify-content: flex-start;
 }
 
-.home .formSearch label,
-.home .formSearch input {
+#home .formSearch label,
+#home .formSearch input {
   width: 100%;
 }
 
-.home main .linkToAll {
+#home main .linkToAll {
   display: block;
   text-align: right;
 }
-
-
-/* .home input[name=symbol] {
-  width: 3rem;
-  height: 3rem;
-  border-radius: 50%;
-} */

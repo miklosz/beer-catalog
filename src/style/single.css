@@ -1,0 +1,51 @@
+#single-page {
+
+}
+
+#single-page .name {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  grid-template-rows: repeat(2, 1fr);
+  gap: .5rem;
+}
+
+#single-page .cap {
+  background: url('../../public/img/kapsel.png') no-repeat center / contain;
+  width: 10rem;
+  height: 10rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  justify-self: stretch;
+  font-size: 3.5rem;
+  font-family: var(--font-segwick);
+  font-weight: bold;
+  grid-area: 1 / 1 / 3 / 2;
+}
+
+#single-page h1 { 
+  grid-area: 1 / 2 / 2 / 4;
+  margin: 0;
+  align-content: end;
+  font-size: 2.5rem;
+}
+
+#single-page h2 {
+  grid-area: 2 / 2 / 3 / 4;
+  margin: 0;
+  align-content: start;
+}
+
+#single-page .description {
+  font-size: 1.2rem;
+  line-height: 1.5rem;
+  font-style: italic;
+  padding: 1rem;
+  background: rgba(0, 0, 0, .1);
+}
+
+#single-page aside {
+  margin-top: 2rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--secondary-color);
+}

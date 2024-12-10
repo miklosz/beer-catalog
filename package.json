@@ -11,7 +11,8 @@
     "db:squash": "prisma migrate dev --name squashed_migrations",
     "db:generate": "prisma generate",
     "db:studio": "prisma studio",
-    "db:seed": "tsx prisma/seed.ts"
+    "db:seed": "tsx prisma/seed.ts",
+    "db:import": "tsx prisma/data/import.ts"
   },
   "dependencies": {
     "next": "^15.0.4",

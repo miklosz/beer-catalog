@@ -28,15 +28,14 @@ export const findBeers = async (query: string) => {
 
 export const getSimilarBeers = async (id: number) => {
   // stub, to be implemented
-  const similarBeers = await prisma.beer.findMany(
-    {
-      where: {
-        id: {
-          not: id,
-        },
-      },
-    }
-  );
+  const currentBeer = await prisma.beer.findUnique({ where: { id }});
+  const similarBeers = await prisma.beer.findMany({
+    where: {
+      styleId: currentBeer?.styleId,
+      NOT: { id },
+    },
+      take: 5,
+    });
   return similarBeers;
 };
 
@@ -47,7 +46,7 @@ export const getBeerBySymbol = async (symbol: string) => {
     },
     include: {
       style: {
-        select: { name: true }, // Include only the style name
+        select: { name: true },
       },
     },
   });
@@ -75,11 +74,4 @@ export const getStyleById = async (id: number) => {
   });
   return style;
 };
-
-// export const getAllStyles = async () => {
-//   const styles = await prisma.style.groupBy({
-//     by: ["styleTypeId"],
-//   });
-//   return styles;
-// };
 
