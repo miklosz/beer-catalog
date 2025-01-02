@@ -1,6 +1,6 @@
 {
   "name": "beer-catalog",
-  "version": "2.0.2",
+  "version": "2.0.3",
   "private": true,
   "scripts": {
     "dev": "next dev --turbopack",
@@ -15,20 +15,20 @@
     "db:import": "tsx prisma/data/import.ts"
   },
   "dependencies": {
-    "next": "^15.0.4",
-    "react": "^19.0.0-rc.1",
-    "react-dom": "^19.0.0-rc.1"
+    "next": "15.1.3",
+    "react": "19.0.0",
+    "react-dom": "19.0.0"
   },
   "devDependencies": {
-    "@prisma/client": "^6.0.1",
-    "@types/node": "^22",
+    "@prisma/client": "^6.1",
+    "@types/node": "^22.10",
     "@types/react": "^19",
     "@types/react-dom": "^19",
-    "@typescript-eslint/parser": "^8.17.0",
-    "eslint": "^9",
-    "eslint-config-next": "^15.0.4",
-    "prisma": "^6.0.1",
+    "@typescript-eslint/parser": "^8.19.0",
+    "eslint": "^9.17",
+    "eslint-config-next": "15.1.3",
+    "prisma": "^6.1",
     "tsx": "^4.19.2",
-    "typescript": "^5"
+    "typescript": "^5.7"
   }
 }
