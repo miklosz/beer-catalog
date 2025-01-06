@@ -40,9 +40,13 @@ export const getSimilarBeers = async (id: number) => {
 };
 
 export const getBeerBySymbol = async (symbol: string) => {
-  const beer = await prisma.beer.findUnique({
+  const normalizedSymbol = normalizeString(symbol);
+  const beer = await prisma.beer.findFirst({
     where: {
-      symbol: symbol,
+      symbol: {
+        contains: normalizedSymbol,
+        // mode: 'insensitive', // not supported by SQLite
+      },
     },
     include: {
       style: {
