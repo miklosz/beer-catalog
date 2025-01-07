@@ -32,29 +32,29 @@
 }
 
 #home input:focus {
-  outline: .25rem solid var(--secondary-color);
+  outline: .125rem solid var(--secondary-color);
 }
 
-#home .formSingle {
+#home .form-single {
   flex-direction: row;
   align-items: center;
   justify-content: flex-start;
   gap: 1rem;
 }
 
-#home .formSingle input {
-  width: 3rem;
+#home .form-single input {
+  width: 5rem;
   height: 3rem;
 }
 
-#home .formSearch {
+#home .form-search {
   flex-direction: column;
   align-items: flex-start;
   justify-content: flex-start;
 }
 
-#home .formSearch label,
-#home .formSearch input {
+#home .form-search label,
+#home .form-search input {
   width: 100%;
 }
 

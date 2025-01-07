@@ -2,8 +2,13 @@
   --font-size: 16px;
   --gap: 1rem;
   --primary-color:rgb(5,7,5);
-  --secondary-color: rgb(120, 120, 120);
-  --bg-color: #fff;
+  --secondary-color: rgb(130, 130, 130);
+  --bg-color:rgb(250,250,250);
+  --bg-secondary-color:rgb(220,220,220);
+  --border-color: rgb(200, 200, 200);
+  --red: rgb(240, 80, 70);
+  --green: rgb(117, 184, 67);
+  --blue: rgb(0, 160, 222);
   --breakpoint: 50rem;
 }
 
@@ -56,11 +61,43 @@ a:hover {
 }
 
 input {
-  border: 1px solid var(--primary-color);
+  border: 1px solid var(--border-color);
   border-radius: 0;
+  color: var(--secondary-color);
   padding: calc(var(--gap) * .25);
 }
 
-input::placeholder {
-  color: var(--secondary-color);
+.link-to-beer .symbol {
+  font-family: var(--font-segwick);
+  font-weight: bold;
+  margin-right: .5rem;
+}
+
+.link-to-beer i {
+  margin-left: .5rem;
+}
+
+.link-to-beer .status-icon {
+  margin-left: .5rem;
+}
+
+.status-icon {
+  display: inline-block;
+  background-color: var(--secondary-color);
+  border-radius: .25rem;
+  padding: .125rem .5rem;
+  font-size: .75rem;
+  color: var(--bg-color);
+}
+
+.status-icon.status-2 {
+  background-color: var(--blue);
+}
+
+.status-icon.status-3 {
+  background-color: var(--green);
+}
+
+.status-icon.status-4 {
+  background-color: var(--red);
 }

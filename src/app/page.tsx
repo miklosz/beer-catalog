@@ -13,7 +13,7 @@ const Home = async () => {
 
       <main>
         {/* On symbol submit got to single beer */}
-        <Form action={goToBeer} className="formSingle">
+        <Form action={goToBeer} className="form-single">
           <label htmlFor="symbol">Wprowadź symbol z kapsla:</label>
           <input
             name="symbol"
@@ -22,7 +22,7 @@ const Home = async () => {
         </Form>
 
         {/* On submit, go to filtered results page*/}
-        <Form action="/list" className="formSearch">
+        <Form action="/list" className="form-search">
           <label htmlFor="q">Lub wyszukaj:</label>
           <input
             name="q"

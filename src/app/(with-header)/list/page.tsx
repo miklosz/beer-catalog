@@ -1,5 +1,7 @@
+import { redirect } from "next/navigation";
 import { findBeers, getAllBeers } from "@/server/dbApi";
 import LinkToBeer from "@/components/LinkToBeer/LinkToBeer";
+import '@/style/list.css'
 
 type SearchParams = Promise<{ [key: string]: string | string[] | undefined; }>
 interface Props { 
@@ -18,6 +20,10 @@ export async function generateMetadata(props: Props) {
 const BeersList = async ({ searchParams } : Props) => {
   const query = (await searchParams).q
   const results = query ? await findBeers(Array.isArray(query) ? query.join(' ') : query) : await getAllBeers()
+
+  if (results.length === 1) { 
+    return redirect(`/b/${results[0].symbol}`)
+  }
 
   return (
     <div id="list">

@@ -12,8 +12,9 @@ const LinkToBeer = ({ beer }: { beer: Partial<Beer>; }) => {
 
   return (
     <Link
+      className="link-to-beer"
       href={`/b/${normalizeString(symbol)}`}>
-      {symbol} {name}
+      <span className="symbol">{symbol}</span>{name}
       {styleName && <i>{styleName}</i>}
       {statusId && <StatusIcon statusId={statusId} />}
     </Link>

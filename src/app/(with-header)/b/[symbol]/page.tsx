@@ -1,10 +1,17 @@
+import { Metadata } from "next";
+import { notFound } from "next/navigation";
+import { Beer } from "@prisma/client";
 import { getBeerBySymbol, getSimilarBeers } from "@/server/dbApi";
 import LinkToBeer from "@/components/LinkToBeer/LinkToBeer";
-import { notFound } from "next/navigation";
+import StatusIcon from "@/components/StatusIcon/StatusIcon";
 import { displayDate, normalizeString } from "@/utils";
 import '@/style/single.css';
 
-const SingleBeerPage = async ({ params }: { params: Promise<{ symbol: string; }>; }) => {
+interface Props {
+ params: Promise<{ symbol: string }>
+}
+
+const getBeerData = async ({ params }: Props): Promise<Beer> => { 
   const symbol = (await params).symbol;
   const beer = await getBeerBySymbol(normalizeString(symbol));
 
@@ -12,8 +19,22 @@ const SingleBeerPage = async ({ params }: { params: Promise<{ symbol: string; }>
     return notFound();
   }
 
+  return beer;
+}
+
+export const generateMetadata = async ({ params }: Props): Promise<Metadata> => {
+  const beer = await getBeerData({ params });
+
+  return {
+    title: `${beer.name} [${beer.symbol}]`,
+    description: beer.description,
+  };
+}
+
+const SingleBeerPage = async ({ params }: Props) => {
+  const beer = await getBeerData({ params });
   const similarBeers = await getSimilarBeers(beer.id);
-  const { name, styleName, description, brewedAt, bottledAt, abv, og, fg, ibu, srm, statusId } = beer
+  const { symbol, name, styleName, description, brewedAt, bottledAt, abv, og, fg, ibu, srm, statusId } = beer
 
   return (
     <div id="single-page">
@@ -22,8 +43,7 @@ const SingleBeerPage = async ({ params }: { params: Promise<{ symbol: string; }>
           {symbol}
         </div>
         <h1>{name}</h1>
-        {/* todo - add style label (aka kolorowe mydełko) */}
-        <h2>Styl: {styleName} <span className="status">{statusId}</span></h2>
+        <h2>Styl: {styleName} <StatusIcon statusId={statusId}/></h2>
       </div>
       
       {description &&
